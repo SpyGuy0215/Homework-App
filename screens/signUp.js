@@ -105,7 +105,7 @@ export default class SignUpScreen extends React.Component {
     }
   }
     
-
+  
     render() {
         return(
             <NativeBaseProvider>

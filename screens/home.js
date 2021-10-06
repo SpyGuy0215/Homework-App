@@ -4,13 +4,22 @@ import { StyleSheet, Text, Touchable, TouchableOpacity, View, Keyboard } from 'r
 import { RFValue } from 'react-native-responsive-fontsize';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { FontAwesome5 } from '@expo/vector-icons';
-import { NativeBaseProvider, extendTheme, Center, Fab, Box, Heading, VStack, HStack, FormControl, Input, Button, Icon, Link } from 'native-base';
+import { NativeBaseProvider, extendTheme, FlatList, Center, Fab, Box, Heading, VStack, HStack, FormControl, Input, Button, Icon, Link } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 import firebase from 'firebase';
 import db from '../config'
 
 
 export default class HomeScreen extends React.Component {
+    constructor() {
+        super()
+        this.state={
+            email: firebase.auth().currentUser.email,
+            username: '',
+            userTeacherList: [],
+            userHomeworkList: [],
+        }
+    }
 
     onAddTeacherClick = () => {
         this.props.navigation.navigate('AddTeacher')
@@ -26,6 +35,7 @@ export default class HomeScreen extends React.Component {
                         </Button>
                             <Heading style={{marginLeft: RFValue(57), marginTop: 9}}>Homework</Heading>
                     </HStack>
+
                     <Fab size='lg' colorScheme='blue' onPress={this.onAddTeacherClick} icon={<Icon style={{marginLeft: 3}} as={<FontAwesome5 name='plus'/>}/>} placement='bottom-right' />
                 </Box>
             </NativeBaseProvider>
