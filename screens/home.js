@@ -95,13 +95,9 @@ export default class HomeScreen extends React.Component {
                             data={this.state.userHomeworkList}
                             style={{marginTop: RFValue(10), width: '100%', marginLeft: 'auto', marginRight: 'auto'}}
                             renderItem={({item}) => (
-                                <>
-                                <Button style={{borderRadius:0, height: RFValue(60), borderTopWidth: 0.3}}>
-                                    <HStack>
-                                        <Text style={{color: 'coolGray.300'}}>{item.title}</Text>
-                                    </HStack>
-                                </Button>
-                                </>
+                                <Box>
+                                    <Text>{item.title}</Text>
+                                </Box>
                             )}
                         ></FlatList>
                         : <Spinner color='blue.500' />}
