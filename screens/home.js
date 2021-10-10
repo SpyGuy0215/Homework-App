@@ -6,6 +6,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { NativeBaseProvider, extendTheme, FlatList, Center, Fab, Box, Heading, VStack, HStack, FormControl, Input, Button, Icon, Link, Spinner, Badge } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import firebase from 'firebase';
 import db from '../config'
 import MMKVStorage, {create} from 'react-native-mmkv-storage';
@@ -96,7 +97,7 @@ export default class HomeScreen extends React.Component {
                             style={{marginTop: RFValue(10), width: '100%', marginLeft: 'auto', marginRight: 'auto'}}
                             renderItem={({item}) => (
                                 <Box>
-                                    <Text>{item.title}</Text>
+                                    <BouncyCheckbox text={item.title} style={{marginLeft: 20}} size={30} />
                                 </Box>
                             )}
                         ></FlatList>
