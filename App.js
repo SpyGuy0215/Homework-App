@@ -6,23 +6,31 @@ import SignUpScreen from './screens/signUp';
 import HomeScreen from './screens/home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import StackNav  from './navigators/stackNavigator';
+import AdminPage from './screens/adminPage';
 import AddTeacherScreen from './screens/addTeacher';
+import AdminSignUpScreen from './screens/adminSignUp';
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 LogBox.ignoreAllLogs();
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Sign In" component={SignInScreen}/>
-        <Stack.Screen name="Sign Up" component={SignUpScreen}/>
-        <Stack.Screen name='Home' component={HomeScreen}/>
-        <Stack.Screen name='AddTeacher' component={AddTeacherScreen}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+export default class App extends React.Component {
+  constructor() {
+    super()
+  }
+
+  render() {
+    return (
+      <NavigationContainer>
+        <Drawer.Navigator swipeEnabled='false' screenOptions={{headerShown: false, swipeEnabled: false}} options={{swipeEnabled: false}}>
+          <Drawer.Screen name='Home' component={StackNav}/>
+          <Drawer.Screen name='Admin' component={AdminPage}/>
+        </Drawer.Navigator>
+      </NavigationContainer>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

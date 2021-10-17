@@ -178,6 +178,14 @@ export default class SignUpScreen extends React.Component {
                   <Button onPress={this.onSignUpClick} mt='2' colorScheme='blue' _text={{color: 'white'}}>
                     Sign Up!
                   </Button>
+                  <HStack mt='6' justifyContent='center'>
+                    <Link _text={{
+                      fontWeight: 'medium',
+                      fontSize: 'sm',
+                      }} onPress={() => {this.props.navigation.navigate('Admin Sign Up')}}>
+                      Admin Page 
+                    </Link>
+                  </HStack>
               </VStack>
             </Box>
           </NativeBaseProvider>
