@@ -1,4 +1,4 @@
-# Homework.io
+# Homework App
 
 Have you ever been in this situation?
 "Oh no, I forgot what I have to do for homework!"
